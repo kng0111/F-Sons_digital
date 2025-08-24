@@ -1,0 +1,534 @@
+// Metrics for dashboard
+const metrics = [
+  { label: "Active Campaigns", value: 5 },
+  { label: "Monthly Visitors", value: "12,340" },
+  { label: "Conversion Rate", value: "3.2%" },
+  { label: "Ad Spend ($)", value: "4,800" }
+];
+
+const metricsContainer = document.getElementById("metrics");
+if (metricsContainer) {
+  metrics.forEach(m => {
+    const div = document.createElement("div");
+    div.className = "metric";
+    div.innerHTML =
+      `<div class="metric-value">${m.value}</div>
+      <div class="metric-label">${m.label}</div>`;
+    metricsContainer.appendChild(div);
+  });
+}
+
+// Insights
+const insights = [
+  "Your Facebook campaigns are performing better than Google Ads. Try shifting more budget to Facebook for higher returns.",
+  "Posting blog articles on Tuesdays leads to more customer engagement.",
+  "Automated email follow-ups increased conversions last month.",
+  "The headline 'Save More Now' gets more clicks than 'Limited Offer'. Consider updating your promotions!"
+];
+
+const insightsContent = document.getElementById("insights-content");
+if (insightsContent) {
+  insightsContent.innerHTML = "<ul>" +
+    insights.map(i => `<li>${i}</li>`).join('') +
+    "</ul>";
+}
+
+// Campaign suggestions
+const campaignSamples = [
+  "Blog Topic: 'Top 5 Digital Marketing Mistakes Small Businesses Make.'",
+  "Social Post: 'Grow your business with SmartGrowth AI – Try it free today!'",
+  "Email: 'Hi {{name}}, our AI tools make marketing easy. Start your journey with SmartGrowth AI.'"
+];
+
+const generateContentBtn = document.getElementById("generate-content");
+const contentOutput = document.getElementById("content-output");
+if (generateContentBtn && contentOutput) {
+  generateContentBtn.addEventListener("click", () => {
+    generateContentBtn.disabled = true;
+    generateContentBtn.innerHTML = `<img src="assets/icons/campaigns.svg" class="nav-icon" alt="Magic"> Generating...`;
+    setTimeout(() => {
+      contentOutput.innerHTML = "<ul>" +
+        campaignSamples.map(c => `<li>${c}</li>`).join('') +
+        "</ul>";
+      generateContentBtn.disabled = false;
+      generateContentBtn.innerHTML = `<img src="assets/icons/campaigns.svg" class="nav-icon" alt="Magic"> Get AI Suggestions`;
+    }, 900);
+  });
+}
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="24" cy="24" r="20" fill="#ff7ba5" opacity="0.12"/>
+  <circle cx="24" cy="20" r="4" fill="#ff7ba5"/>
+  <rect x="20" y="26" width="8" height="10" rx="4" fill="#fbc531"/>
+  <rect x="22" y="36" width="4" height="2" rx="1" fill="#43a4ff"/>
+</svg>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="18" width="28" height="12" rx="6" fill="#43a4ff" opacity="0.13"/>
+  <path d="M24 12L28 24H20L24 12Z" fill="#fbc531"/>
+  <rect x="21" y="24" width="6" height="12" rx="3" fill="#ff7ba5"/>
+  <circle cx="24" cy="36" r="3" fill="#43a4ff"/>
+</svg>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="6" y="6" width="36" height="36" rx="8" fill="#43a4ff" opacity="0.12"/>
+  <rect x="12" y="28" width="8" height="10" rx="2" fill="#43a4ff"/>
+  <rect x="20" y="20" width="8" height="18" rx="2" fill="#fbc531"/>
+  <rect x="28" y="12" width="8" height="26" rx="2" fill="#ff7ba5"/>
+  <rect x="36" y="36" width="6" height="6" rx="3" fill="#43a4ff" opacity="0.3"/>
+</svg>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="24" cy="24" r="20" fill="#fbc531" opacity="0.15"/>
+  <path d="M24 34C20 34 16 29 16 24C16 20 19 17 24 17C29 17 32 20 32 24C32 29 28 34 24 34Z" fill="#fbc531"/>
+  <ellipse cx="24" cy="24" rx="4" ry="7" fill="#ff7ba5"/>
+  <circle cx="24" cy="24" r="3" fill="#43a4ff"/>
+</svg>
+# Contributing to SmartGrowth AI
+
+Thank you for your interest in contributing to SmartGrowth AI! We welcome contributions from developers, designers, and domain experts. This document will help you get started and understand our collaboration workflow.
+
+---
+
+## Table of Contents
+- [How to Contribute](#how-to-contribute)
+- [Code of Conduct](#code-of-conduct)
+- [Project Structure](#project-structure)
+- [Setting Up Your Environment](#setting-up-your-environment)
+- [Branching and Workflow](#branching-and-workflow)
+- [Submitting Changes](#submitting-changes)
+- [Reporting Issues](#reporting-issues)
+- [Style Guide](#style-guide)
+- [Contact](#contact)
+
+---
+
+## How to Contribute
+
+1. **Fork the repository** and clone your fork locally.
+2. **Create a new branch** for your feature or fix.
+3. **Make your changes** following our style guidelines.
+4. **Commit your changes** with clear, descriptive messages.
+5. **Push your branch** to GitHub.
+6. **Open a Pull Request (PR)** with a detailed description of your changes.
+
+---
+
+## Code of Conduct
+
+Please be respectful and constructive. We follow the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
+
+---
+
+## Project Structure
+
+- `index.html` – Main application page
+- `styles.css` – Application styles
+- `app.js` – Client-side logic
+- `assets/` – Images and icons (put your logo here as `logo.png`)
+- Microservices and backend code will be in their respective repositories
+
+---
+
+## Setting Up Your Environment
+
+1. Clone your fork:
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/smartgrowth-ai.git
+   cd smartgrowth-ai
+   ```
+2. Install any dependencies (if applicable).
+3. Place your logo in `assets/logo.png`.
+4. Open `index.html` in your browser to preview changes.
+
+---
+
+## Branching and Workflow
+
+- Use [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow):
+  - Branch from `main` for each feature, fix, or documentation update.
+  - Name branches descriptively: `feature/dashboard-metrics`, `bugfix/login-error`, etc.
+  - Submit PRs to merge your branch into `main`.
+  - PRs require review by another contributor.
+
+---
+
+## Submitting Changes
+
+- Open a Pull Request (PR) describing your changes, related issues, and any special notes.
+- Ensure your code passes all automated checks.
+- Be ready to discuss and revise your code based on feedback.`
+
+---
+
+## Reporting Issues
+
+- Use the [Issues](https://github.com/kng0111/smartgrowth-ai/issues) tab for bug reports, feature requests, or questions.
+- Please provide clear steps to reproduce bugs, screenshots if helpful, and your environment details.
+
+---
+
+## Style Guide
+
+- Use clear, descriptive commit messages.
+- Write clean, readable code and comments.
+- Follow web standards for HTML, CSS, and JavaScript.
+- Use semantic HTML and accessible design principles.
+
+---
+
+## Contact
+
+- For questions, open an issue or start a discussion.
+- For urgent matters, email the repository maintainer at the address on their GitHub profile.
+
+---
+
+*We are excited to build SmartGrowth AI together!*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>SmartGrowth AI - Your Marketing Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+  <header>
+    <div class="branding">
+      <img src="assets/logo.png" alt="SmartGrowth AI Logo" id="logo">
+      <h1>SmartGrowth AI</h1>
+    </div>
+    <nav>
+      <a href="#dashboard"><img src="assets/icons/dashboard.svg" alt="Dashboard" class="nav-icon"> Dashboard</a>
+      <a href="#insights"><img src="assets/icons/insights.svg" alt="Insights" class="nav-icon"> Insights</a>
+      <a href="#campaigns"><img src="assets/icons/campaigns.svg" alt="Campaigns" class="nav-icon"> Campaigns</a>
+      <a href="#about"><img src="assets/icons/about.svg" alt="About" class="nav-icon"> About</a>
+    </nav>
+  </header>
+  <main>
+    <section id="dashboard" class="card fade-in">
+      <h2><img src="assets/icons/dashboard.svg" alt="Dashboard" class="nav-icon"> Your Marketing at a Glance</h2>
+      <div id="metrics"></div>
+    </section>
+    <section id="insights" class="card fade-in">
+      <h2><img src="assets/icons/insights.svg" alt="Insights" class="nav-icon"> Smart Insights</h2>
+      <div id="insights-content"></div>
+    </section>
+    <section id="campaigns" class="card fade-in">
+      <h2><img src="assets/icons/campaigns.svg" alt="Campaigns" class="nav-icon"> Boost Your Campaigns</h2>
+      <button id="generate-content"><img src="assets/icons/campaigns.svg" class="nav-icon" alt="Magic"> Get AI Suggestions</button>
+      <div id="content-output"></div>
+    </section>
+    <section id="about" class="card fade-in">
+      <h2><img src="assets/icons/about.svg" alt="About" class="nav-icon"> What is SmartGrowth AI?</h2>
+      <p>
+        SmartGrowth AI makes digital marketing simple and effective for everyone.<br>
+        <span class="highlight">No tech experience needed!</span><br>
+        Instantly see your results, get smart recommendations, and let AI handle the busywork.<br>
+        <br>
+        <a class="cta" href="https://github.com/kng0111/smartgrowth-ai" target="_blank">
+          <img src="assets/logo.png" alt="GitHub" style="vertical-align:middle;height:20px;margin-right:6px;"> View Project on GitHub
+        </a>
+      </p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 SmartGrowth AI. Empowering SMBs Worldwide.</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
+# SmartGrowth AI: An AI-Powered Digital Marketing OS for SMBs
+
+## Project Description
+
+**SmartGrowth AI** is a comprehensive, AI-driven platform designed to disrupt the inefficiencies and fragmentation of the digital marketing industry for small to medium-sized businesses (SMBs). The project aims to unify data, automate complex marketing workflows, and deliver actionable insights—democratizing enterprise-grade marketing capabilities for resource-constrained teams.
+
+This repository serves as the central hub for SmartGrowth AI’s development, following a microservices architecture and professional, open-source-aligned workflow.
+
+---
+
+## 1. The Problem: Why Digital Marketing is Broken for SMBs
+
+Despite a $500+ billion global market, SMBs face persistent barriers:
+
+- **The Inefficiency Trap:** ~55% of small businesses lack the resources and expertise to establish a strong digital presence, leading to wasted budgets and ineffective campaigns.
+- **A Strategic Void:** The market is saturated with siloed, non-integrated tools. SMBs must choose between expensive agencies and confusing DIY solutions, creating a strategic gap.
+- **The Data Dilemma:** Data inconsistency across tools makes it nearly impossible to accurately measure campaign performance or ROI. Data becomes a cost—not an asset.
+
+---
+
+## 2. The Solution: Key Platform Features
+
+SmartGrowth AI offers a suite of integrated, AI-powered capabilities:
+
+- **Unified Data Dashboard:** Aggregates and standardizes data from all marketing channels, providing a single source of truth for performance metrics.
+- **Automated Content & Campaign Generation:** AI creates blogs, social posts, and emails—streamlining content production and ensuring brand consistency.
+- **Predictive Analytics & Recommendations:** AI models analyze behavior and trends to offer proactive insights and strategic recommendations.
+- **Automated Optimization:** Continuous campaign monitoring, A/B testing, and real-time adjustments maximize ROI with minimal manual intervention.
+
+---
+
+## 3. Technical Blueprint
+
+- **Architecture:** Microservices. Each service (e.g., data ingestion, AI training) is independent for scalable and flexible development.
+- **Technology Stack:** Python-based core services using [FastAPI](https://fastapi.tiangolo.com/) (high-performance, async, auto-API docs).
+- **Data Pipeline:** Hybrid batch/streaming for efficient, scalable analytics and real-time optimization.
+- **Deployment:** Containerized with Docker; orchestrated via Kubernetes; multi-cloud strategy for resilience and flexibility.
+
+---
+
+## 4. Development Workflow
+
+- **Repository Structure:** Polyrepo—each microservice in its own repo for independent scaling and deployment.
+- **Branching Strategy:** [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow)—main branch always deployable, features/bugs on separate branches merged via pull requests.
+- **Project Management:** GitHub Project Boards.
+  - Break down large tasks into smaller issues for parallel work.
+  - Use project views to track roadmap and progress.
+  - Maintain a single source of truth for project info.
+
+---
+
+## 5. Get Started
+
+SmartGrowth AI is in its initial development phase. Contributions are welcome from developers, designers, and domain experts.
+
+- **To contribute:** See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+- **Join discussions:** Open issues for questions, suggestions, or proposals.
+
+---
+
+## License
+
+[MIT License](LICENSE)
+
+---
+
+## Contact
+
+For questions & collaboration, open an issue or reach out via the Discussions tab.
+
+:root {
+  --primary: #43a4ff;
+  --accent: #fbc531;
+  --dark: #222e3c;
+  --background: linear-gradient(135deg, #f6fafd 0%, #e9f5ff 100%);
+  --card-bg: #fff;
+  --card-shadow: 0 4px 16px rgba(67,164,255,0.09);
+  --radius: 18px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Poppins', Arial, sans-serif;
+  background: var(--background);
+  color: var(--dark);
+}
+header {
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2em 0 1em 0;
+  box-shadow: 0 2px 8px rgba(67,164,255,0.07);
+}
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+#logo {
+  height: 48px;
+  filter: drop-shadow(0 2px 6px #222e3c22);
+}
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+nav {
+  margin-top: 0.8em;
+  display: flex;
+  gap: 2em;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.08em;
+  font-weight: 500;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+nav a:hover {
+  color: var(--accent);
+}
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 0.5em;
+}
+main {
+  max-width: 950px;
+  margin: 2.5em auto 3.5em auto;
+  padding: 1em;
+}
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  margin-bottom: 2em;
+  padding: 2em 1.3em;
+  animation: fadeIn 1s;
+}
+.card h2 {
+  margin-top: 0;
+  color: var(--primary);
+  font-size: 1.5em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+#metrics {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  margin-top: 1em;
+}
+.metric {
+  background: linear-gradient(120deg, #c8e6ff 80%, #f6fafd 100%);
+  border-radius: 12px;
+  padding: 1.1em 2.2em;
+  min-width: 150px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(67,164,255,0.07);
+  transition: transform 0.2s;
+}
+.metric:hover {
+  transform: translateY(-4px) scale(1.04);
+}
+.metric-value {
+  font-size: 2.2em;
+  font-weight: bold;
+  color: var(--accent);
+}
+.metric-label {
+  font-size: 1em;
+  color: #444;
+  margin-top: 0.2em;
+}
+#insights-content ul {
+  margin: 1em 0 0 0;
+  padding-left: 1.2em;
+}
+#insights-content li {
+  margin-bottom: 0.6em;
+  font-size: 1.13em;
+  padding-left: 0.2em;
+  line-height: 1.5;
+  color: #1c6c45;
+  position: relative;
+}
+#insights-content li:before {
+  content: "💡";
+  position: absolute;
+  left: -1.2em;
+}
+#generate-content {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8em 1.8em;
+  font-size: 1.12em;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s, box-shadow 0.2s;
+  margin-bottom: 1em;
+  box-shadow: 0 2px 8px #43a4ff22;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+#generate-content:hover {
+  background: var(--accent);
+  color: var(--dark);
+}
+#content-output {
+  margin-top: 1em;
+  background: #fdf6e7;
+  border-radius: 8px;
+  padding: 1em;
+  font-size: 1.08em;
+  color: #7c3c21;
+  box-shadow: 0 1px 4px #fbc53122;
+}
+.highlight {
+  background: #fbc53144;
+  padding: 0.2em 0.6em;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #a35d00;
+}
+.cta {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.6em 1.4em;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 1em;
+  transition: background 0.2s, color 0.2s;
+}
+.cta:hover {
+  background: var(--accent);
+  color: var(--dark);
+}
+footer {
+  text-align: center;
+  padding: 1.1em;
+  background: var(--primary);
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  letter-spacing: 1px;
+  box-shadow: 0 -2px 8px rgba(67,164,255,0.04);
+  font-size: 1.08em;
+}
+@media (max-width: 650px) {
+  main {
+    padding: 0.2em;
+  }
+  #metrics {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .card {
+    padding: 1em;
+  }
+  nav {
+    gap: 1em;
+    font-size: 1em;
+  }
+  .metric {
+    min-width: 120px;
+    padding: 1em;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 0.5em;
+}
